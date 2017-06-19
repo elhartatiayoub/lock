@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - lock_db@localhost [2]" uuid="454658fc-727d-4d23-b689-453c767f87de">
+    <database-info product="MySQL" version="5.7.12-0ubuntu1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+      <schema id="1" name="lock_db"/>
+      <table id="2" parent="1" name="note"/>
+      <table id="3" parent="1" name="user"/>
+      <table id="4" parent="1" name="user_notes"/>
+      <column id="5" parent="2" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="6" parent="2" name="content">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="7" parent="2" name="title">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="8" parent="2" name="user_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="9" parent="2" name="FK_7strs0d8haoaf5fswi40yh5j7">
+        <columns>user_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="10" parent="2" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="11" parent="2" name="FK_7strs0d8haoaf5fswi40yh5j7">
+        <columns>user_id</columns>
+        <ref-key>~.user.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="12" parent="3" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="13" parent="3" name="email">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="14" parent="3" name="image_url">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="15" parent="3" name="name">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <index id="16" parent="3" name="UK_ob8kqyqqgmefl0aco34akdtpe">
+        <columns>email</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="17" parent="3" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <key id="18" parent="3" name="UK_ob8kqyqqgmefl0aco34akdtpe">
+        <columns>email</columns>
+        <underlying-index>UK_ob8kqyqqgmefl0aco34akdtpe</underlying-index>
+      </key>
+      <column id="19" parent="4" name="user_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="20" parent="4" name="notes_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="21" parent="4" name="FK_23t3eo61iuc36yn8ncl3xofjh">
+        <columns>user_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="22" parent="4" name="UK_73ncjdvcpkvpu3in4dld41w6c">
+        <columns>notes_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="23" parent="4" name="UK_73ncjdvcpkvpu3in4dld41w6c">
+        <columns>notes_id</columns>
+        <underlying-index>UK_73ncjdvcpkvpu3in4dld41w6c</underlying-index>
+      </key>
+      <foreign-key id="24" parent="4" name="FK_23t3eo61iuc36yn8ncl3xofjh">
+        <columns>user_id</columns>
+        <ref-key>~.user.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="25" parent="4" name="FK_73ncjdvcpkvpu3in4dld41w6c">
+        <columns>notes_id</columns>
+        <ref-key>~.note.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+    </database-model>
+  </data-source>
+</component>
